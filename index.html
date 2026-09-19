@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<title>无限黔徒 · 第26期 | 6天5晚贵州徒步</title>
+<meta name="description" content="2026.9.22-9.27 贵州羊皮洞瀑布+大圣之眼+夜郎天路+关岭冰臼+云峰屯堡徒步">
+<meta property="og:title" content="无限黔徒 · 第26期">
+<meta property="og:description" content="6天5晚贵州徒步旅行计划">
+<style>
+/* ========== 主题变量 ========== */
+:root {
+  --forest: #1a3c2a;
+  --warm-white: #f5f5f0;
+  --moss: #5a7a6a;
+  --mist: #e8ebe9;
+  --pale-border: #d4d9d6;
+  --forest-dark: #142e20;
+  --forest-light: rgba(26, 60, 42, 0.08);
+  --lavender: #f5f0fa;
+  --lavender-border: #d8c8e8;
+  --lavender-text: #6a5a7a;
+  --lavender-accent: #8b6bb8;
+  --danger: #c0392b;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* 成员颜色 */
+  --c1: #1a3c2a; /* 深森绿 */
+  --c2: #8b4513; /*  saddle棕 */
+  --c3: #2c5282; /*  钴蓝 */
+  --c4: #744210; /*  赭石 */
+  --c5: #553c9a; /*  紫罗兰 */
+  --c6: #c05621; /*  赤陶 */
+  --c7: #276749; /*  松绿 */
+  --c8: #b83280; /*  玫红 */
+}
+
+/* ========== 基础重置 ========== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--kimi-font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif);
+  background: var(--warm-white);
+  color: var(--forest);
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+  padding-bottom: 16px;
+}
+button, input, textarea, select { font: inherit; color: inherit; }
+
+/* ========== 工具类 ========== */
+.hide-scrollbar::-webkit-scrollbar { display:none; }
+.hide-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+
+/* ========== 顶部Tab切换 ========== */
+.top-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 95;
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--pale-border);
+  padding: 8px 16px;
+  display: flex;
+  gap: 8px;
+}
+.top-tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--pale-border);
+  background: var(--mist);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--moss);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+.top-tab.active {
+  background: var(--forest);
+  color: var(--warm-white);
+  border-color: var(--forest);
+}
+
+/* ========== 模块容器 ========== */
+.module { display: none; }
+.module.active { display: block; }
+
+/* ========== 固定顶部迷你栏 ========== */
+.compact-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--forest);
+  color: var(--warm-white);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-100%);
+  transition: transform 0.3s var(--ease-out, ease-out);
+}
+.compact-header.visible { transform: translateY(0); }
+.compact-header .title { font-size: 15px; font-weight: 500; }
+.compact-header .meta { font-size: 12px; opacity: 0.7; }
+
+/* ========== 主内容区 ========== */
+.main-content { max-width: 430px; margin: 0 auto; }
+
+/* ========== 标题区 ========== */
+.hero-section {
+  padding: 20px 16px 20px;
+  background: var(--warm-white);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--moss);
+  background: var(--mist);
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+.hero-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--forest);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+.hero-subtitle {
+  font-size: 13px;
+  color: var(--moss);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.hero-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--forest);
+  color: var(--warm-white);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.hero-price {
+  font-size: 13px;
+  color: var(--moss);
+  font-weight: 500;
+}
+
+/* ========== 同行人卡片（置顶+可编辑+彩色） ========== */
+.companions-section {
+  padding: 0 16px 20px;
+}
+.companions-card {
+  background: var(--mist);
+  border: 1px solid var(--pale-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.companions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.companions-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.companions-count {
+  font-size: 12px;
+  color: var(--moss);
+  background: var(--warm-white);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--pale-border);
+}
+.companions-add-btn {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: var(--warm-white);
+  border: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.companions-list {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.companion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.companion-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  border: 2px solid var(--warm-white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.companion-name {
+  font-size: 12px;
+  color: var(--forest);
+  font-weight: 500;
+  max-width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.companion-delete {
+  position: absolute;
+  top: -4px; right: -4px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--warm-white);
+  border: 1px solid var(--pale-border);
+  color: var(--moss);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.companion-item:hover .companion-delete { opacity: 1; }
+
+/* ========== 航班卡片区 ========== */
+.flight-section { padding: 0 16px 24px; }
+.flight-section-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.flight-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+.flight-card {
+  flex: 0 0 calc(100% - 32px);
+  scroll-snap-align: center;
+  background: var(--forest);
+  color: var(--warm-white);
+  border-radius: 12px;
+  padding: 18px 20px;
+  position: relative;
+}
+.flight-tag {
+  display: inline-block;
+  font-size: 11px;
+  background: rgba(245,245,240,0.15);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.flight-route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.flight-city-time { text-align: center; }
+.flight-time {
+  font-size: 32px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.flight-city {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+.flight-arrow {
+  font-size: 20px;
+  opacity: 0.4;
+}
+.flight-no {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 8px;
+}
+.flight-countdown {
+  background: rgba(245,245,240,0.12);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+.flight-countdown .num {
+  font-size: 18px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.flight-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+.flight-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--pale-border);
+  transition: background 0.2s;
+}
+.flight-dot.active { background: var(--forest); }
+
+/* ========== 时间轴区 ========== */
+.timeline-section { padding: 0 16px 24px; }
+.timeline-header {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.timeline-list { position: relative; }
+.timeline-line {
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--pale-border);
+}
+
+/* 折叠态卡片 */
+.day-card {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.day-dot {
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--forest);
+  border: 2px solid var(--warm-white);
+  z-index: 2;
+}
+.day-dot.past { background: var(--moss); }
+.day-dot.pulse {
+  box-shadow: 0 0 0 0 rgba(26,60,42,0.4);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(26,60,42,0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(26,60,42,0); }
+  100% { box-shadow: 0 0 0 0 rgba(26,60,42,0); }
+}
+.day-card-inner {
+  background: var(--mist);
+  border: 1px solid var(--pale-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: all 0.3s var(--ease-out, ease-out);
+}
+.day-card.active .day-card-inner {
+  background: var(--warm-white);
+  border-color: var(--forest);
+  box-shadow: 0 2px 12px rgba(26,60,42,0.08);
+}
+.day-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.day-card-left { flex: 1; }
+.day-date {
+  font-size: 12px;
+  color: var(--moss);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.day-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--forest);
+  line-height: 1.3;
+}
+.day-route {
+  font-size: 12px;
+  color: var(--moss);
+  margin-top: 4px;
+}
+.day-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.day-weather {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--moss);
+}
+.day-hike {
+  font-size: 11px;
+  color: var(--moss);
+  background: var(--warm-white);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--pale-border);
+}
+.day-meal {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+.meal-tag {
+  font-size: 11px;
+  color: var(--moss);
+  background: var(--warm-white);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--pale-border);
+}
+.meal-tag.included { color: var(--forest); border-color: var(--forest); background: var(--forest-light); }
+.day-toggle {
+  font-size: 12px;
+  color: var(--moss);
+  margin-top: 8px;
+  text-align: center;
+  transition: color 0.2s;
+}
+.day-card.active .day-toggle { color: var(--forest); }
+
+/* 展开态详情 */
+.day-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-out, ease-out), opacity 0.3s;
+  opacity: 0;
+}
+.day-card.active .day-detail {
+  max-height: 2000px;
+  opacity: 1;
+}
+.day-detail-inner {
+  padding-top: 14px;
+  border-top: 1px solid var(--pale-border);
+  margin-top: 12px;
+}
+
+/* 行程时间表 */
+.schedule-list { margin-bottom: 16px; }
+.schedule-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.schedule-time {
+  width: 48px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--forest);
+  flex-shrink: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.schedule-content { flex: 1; }
+.schedule-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 2px;
+}
+.schedule-desc {
+  font-size: 13px;
+  color: var(--moss);
+  line-height: 1.5;
+}
+
+/* 天气与穿衣 */
+.weather-box {
+  background: var(--mist);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 1px solid var(--pale-border);
+}
+.weather-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.weather-icon { font-size: 28px; }
+.weather-temp {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--forest);
+  font-variant-numeric: tabular-nums;
+}
+.weather-condition {
+  font-size: 13px;
+  color: var(--moss);
+}
+.weather-location {
+  font-size: 12px;
+  color: var(--moss);
+  text-align: right;
+}
+.dress-tip {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding-top: 10px;
+  border-top: 1px dashed var(--pale-border);
+}
+.dress-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+.dress-text {
+  font-size: 13px;
+  color: var(--forest);
+  line-height: 1.5;
+}
+
+/* 徒步数据 */
+.hike-data {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.hike-item {
+  background: var(--mist);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid var(--pale-border);
+}
+.hike-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--forest);
+  font-variant-numeric: tabular-nums;
+}
+.hike-label {
+  font-size: 11px;
+  color: var(--moss);
+  margin-top: 2px;
+}
+
+/* 温馨提示 —— 浅紫色背景 */
+.tips-box {
+  background: var(--lavender);
+  border-radius: 8px;
+  padding: 12px;
+  border-left: 3px solid var(--lavender-accent);
+}
+.tips-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--lavender-accent);
+  margin-bottom: 6px;
+}
+.tips-list {
+  list-style: none;
+}
+.tips-list li {
+  font-size: 12px;
+  color: var(--lavender-text);
+  line-height: 1.6;
+  padding-left: 12px;
+  position: relative;
+}
+.tips-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--lavender-accent);
+}
+
+/* ========== 注意事项区 ========== */
+.notes-section { padding: 0 16px 32px; }
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.notes-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.notes-add-btn {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: var(--warm-white);
+  border: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.notes-list { display: flex; flex-direction: column; gap: 10px; }
+.note-card {
+  background: var(--mist);
+  border: 1px solid var(--pale-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  position: relative;
+}
+.note-card:hover .note-actions { opacity: 1; }
+.note-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.note-avatar {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #fff;
+}
+.note-author {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--forest);
+}
+.note-time {
+  font-size: 11px;
+  color: var(--moss);
+  margin-left: auto;
+}
+.note-tag {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--forest-light);
+  color: var(--forest);
+}
+.note-content {
+  font-size: 13px;
+  color: var(--forest);
+  line-height: 1.5;
+}
+.note-actions {
+  position: absolute;
+  top: 8px; right: 8px;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.note-action-btn {
+  background: var(--warm-white);
+  border: 1px solid var(--pale-border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--moss);
+  cursor: pointer;
+}
+.note-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--moss);
+  font-size: 13px;
+}
+
+/* ========== 记账模块 ========== */
+.accounting-section { padding: 16px; }
+
+/* 成员概览 */
+.ac-member-overview {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+.ac-member-chip {
+  flex-shrink: 0;
+  background: var(--mist);
+  border: 1px solid var(--pale-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  min-width: 110px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ac-member-chip:hover { border-color: var(--forest); }
+.ac-member-chip .avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 auto 6px;
+}
+.ac-member-chip .name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 4px;
+}
+.ac-member-chip .balance {
+  font-size: 12px;
+  color: var(--moss);
+}
+.ac-member-chip .balance.negative { color: var(--danger); font-weight: 500; }
+.ac-member-chip .balance.positive { color: var(--forest); font-weight: 500; }
+
+/* 结算方案 */
+.ac-settlement-section { margin-bottom: 20px; }
+.ac-section-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ac-settlement-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.ac-settlement-card {
+  flex-shrink: 0;
+  background: var(--warm-white);
+  border: 1.5px solid var(--pale-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  min-width: 160px;
+  text-align: center;
+}
+.ac-settlement-card .from-to {
+  font-size: 12px;
+  color: var(--moss);
+  margin-bottom: 6px;
+}
+.ac-settlement-card .amount {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--danger);
+  font-variant-numeric: tabular-nums;
+}
+.ac-settlement-card .arrow {
+  font-size: 14px;
+  color: var(--moss);
+  margin: 0 4px;
+}
+.ac-settlement-empty {
+  font-size: 13px;
+  color: var(--moss);
+  padding: 16px;
+  text-align: center;
+  background: var(--mist);
+  border-radius: 10px;
+}
+
+/* 消费明细 */
+.ac-expense-section { margin-bottom: 20px; }
+.ac-expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.ac-add-expense-btn {
+  background: var(--forest);
+  color: var(--warm-white);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ac-expense-group {
+  margin-bottom: 12px;
+  background: var(--mist);
+  border: 1px solid var(--pale-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.ac-expense-group-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  background: var(--mist);
+}
+.ac-expense-group-header .avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  flex-shrink: 0;
+}
+.ac-expense-group-header .info { flex: 1; }
+.ac-expense-group-header .name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+}
+.ac-expense-group-header .total {
+  font-size: 12px;
+  color: var(--moss);
+}
+.ac-expense-group-header .toggle {
+  font-size: 12px;
+  color: var(--moss);
+}
+.ac-expense-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s var(--ease-out, ease-out);
+}
+.ac-expense-group.open .ac-expense-list {
+  max-height: 800px;
+}
+.ac-expense-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--pale-border);
+  background: var(--warm-white);
+}
+.ac-expense-item .category-tag {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--forest-light);
+  color: var(--forest);
+  flex-shrink: 0;
+}
+.ac-expense-item .detail { flex: 1; }
+.ac-expense-item .detail .title {
+  font-size: 13px;
+  color: var(--forest);
+  font-weight: 500;
+}
+.ac-expense-item .detail .meta {
+  font-size: 11px;
+  color: var(--moss);
+  margin-top: 2px;
+}
+.ac-expense-item .amount {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--forest);
+  font-variant-numeric: tabular-nums;
+}
+.ac-expense-item .actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.ac-expense-item:hover .actions { opacity: 1; }
+.ac-expense-item .actions button {
+  background: var(--mist);
+  border: 1px solid var(--pale-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 10px;
+  color: var(--moss);
+  cursor: pointer;
+}
+
+/* ========== 弹窗通用 ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,60,42,0.4);
+  z-index: 200;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal-content {
+  background: var(--warm-white);
+  width: 100%;
+  max-width: 430px;
+  border-radius: 16px 16px 0 0;
+  padding: 20px 16px calc(24px + var(--safe-bottom));
+  transform: translateY(100%);
+  transition: transform 0.3s var(--ease-out, ease-out);
+}
+.modal-overlay.show .modal-content { transform: translateY(0); }
+.modal-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 16px;
+}
+.modal-input, .modal-textarea {
+  width: 100%;
+  border: 1px solid var(--pale-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: var(--mist);
+  margin-bottom: 12px;
+  outline: none;
+}
+.modal-input:focus, .modal-textarea:focus { border-color: var(--forest); }
+.modal-textarea { min-height: 80px; resize: none; }
+.modal-select {
+  width: 100%;
+  border: 1px solid var(--pale-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: var(--mist);
+  margin-bottom: 12px;
+  outline: none;
+  appearance: none;
+}
+.modal-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 6px;
+  display: block;
+}
+.modal-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.modal-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--forest);
+  background: var(--mist);
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--pale-border);
+  cursor: pointer;
+}
+.modal-checkbox-item input[type="checkbox"] {
+  accent-color: var(--forest);
+  width: 16px; height: 16px;
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+.modal-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.modal-btn.cancel {
+  background: var(--mist);
+  color: var(--forest);
+  border: 1px solid var(--pale-border);
+}
+.modal-btn.confirm {
+  background: var(--forest);
+  color: var(--warm-white);
+}
+
+/* ========== 底部导航（深色+可爱图标） ========== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--forest);
+  border-top: 1px solid rgba(245,245,240,0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: calc(56px + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  z-index: 90;
+  max-width: 430px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 56px;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: transparent;
+}
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: var(--warm-white);
+  border-radius: 0 0 2px 2px;
+}
+.nav-icon { font-size: 22px; line-height: 1; }
+.nav-label {
+  font-size: 10px;
+  color: rgba(245,245,240,0.6);
+  font-weight: 500;
+}
+.nav-item.active .nav-label { color: var(--warm-white); }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- 固定顶部迷你栏 -->
+<header class="compact-header" id="compactHeader">
+  <div>
+    <div class="title">无限黔徒 · 第26期</div>
+    <div class="meta" id="compactMeta">9.22 — 9.27</div>
+  </div>
+  <div style="font-size:12px;opacity:0.7;" id="compactCountdown"></div>
+</header>
+
+<!-- 顶部Tab切换 -->
+<div class="top-tabs" id="topTabs">
+  <button class="top-tab active" data-module="travel">🗺 旅行信息</button>
+  <button class="top-tab" data-module="accounting">💰 记账</button>
+</div>
+
+<!-- 主内容 -->
+<main class="main-content">
+
+  <!-- ====== 旅行信息模块 ====== -->
+  <div class="module active" id="moduleTravel">
+
+    <!-- 标题区 -->
+    <section class="hero-section">
+      <div class="hero-tag">6天5晚 · 中秋出发</div>
+      <h1 class="hero-title">2026无限黔徒<br>第26期</h1>
+      <p class="hero-subtitle">贵州羊皮洞瀑布+大圣之眼+夜郎天路+关岭冰臼+云峰屯堡徒步</p>
+      <div class="hero-row">
+        <span class="hero-date-pill">
+          <span>📅</span>
+          <span>2026.9.22 — 9.27</span>
+        </span>
+        <span class="hero-price">2880元/人</span>
+      </div>
+    </section>
+
+    <!-- 同行人（置顶+可编辑+彩色） -->
+    <section class="companions-section" id="companionsSection">
+      <div class="companions-card">
+        <div class="companions-header">
+          <div class="companions-title">🧑‍🤝‍🧑 同行伙伴</div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="companions-count" id="companionsCount">4人</span>
+            <button class="companions-add-btn" id="addCompanionBtn">+</button>
+          </div>
+        </div>
+        <div class="companions-list hide-scrollbar" id="companionsList"></div>
+      </div>
+    </section>
+
+    <!-- 航班卡片 -->
+    <section class="flight-section">
+      <div class="flight-section-title">✈️ 航班信息</div>
+      <div class="flight-scroll hide-scrollbar" id="flightScroll">
+        <div class="flight-card" data-index="0">
+          <div class="flight-tag">去程 · 9月22日</div>
+          <div class="flight-route">
+            <div class="flight-city-time">
+              <div class="flight-time">07:05</div>
+              <div class="flight-city">上海虹桥</div>
+            </div>
+            <div class="flight-arrow">→</div>
+            <div class="flight-city-time">
+              <div class="flight-time">10:05</div>
+              <div class="flight-city">贵阳龙洞堡</div>
+            </div>
+          </div>
+          <div class="flight-no">春秋航空 9C7117</div>
+          <div class="flight-countdown" id="countdownOutbound">计算中...</div>
+        </div>
+        <div class="flight-card" data-index="1">
+          <div class="flight-tag">返程 · 9月27日</div>
+          <div class="flight-route">
+            <div class="flight-city-time">
+              <div class="flight-time">18:00</div>
+              <div class="flight-city">贵阳龙洞堡</div>
+            </div>
+            <div class="flight-arrow">→</div>
+            <div class="flight-city-time">
+              <div class="flight-time">20:20</div>
+              <div class="flight-city">上海虹桥</div>
+            </div>
+          </div>
+          <div class="flight-no">南方航空 CZ8263</div>
+          <div class="flight-countdown" id="countdownReturn">计算中...</div>
+        </div>
+      </div>
+      <div class="flight-dots">
+        <div class="flight-dot active" data-index="0"></div>
+        <div class="flight-dot" data-index="1"></div>
+      </div>
+    </section>
+
+    <!-- 每日行程 -->
+    <section class="timeline-section" id="timelineSection">
+      <div class="timeline-header">🗓 每日行程</div>
+      <div class="timeline-list">
+        <div class="timeline-line"></div>
+        <!-- Day 1 -->
+        <div class="day-card" data-day="0">
+          <div class="day-dot pulse"></div>
+          <div class="day-card-inner">
+            <div class="day-card-header">
+              <div class="day-card-left">
+                <div class="day-date">9.22 周二 · Day 1</div>
+                <div class="day-title">集合日·初识贵阳</div>
+                <div class="day-route">📍 上海 → 贵阳市区</div>
+                <div class="day-meal">
+                  <span class="meal-tag">早自理</span>
+                  <span class="meal-tag">午自理</span>
+                  <span class="meal-tag">晚自理</span>
+                </div>
+              </div>
+              <div class="day-card-right">
+                <div class="day-weather"><span>⛅</span><span>22°</span></div>
+                <div class="day-hike">休闲</div>
+              </div>
+            </div>
+            <div class="day-toggle">查看详情 ▼</div>
+            <div class="day-detail">
+              <div class="day-detail-inner">
+                <div class="schedule-list">
+                  <div class="schedule-item">
+                    <div class="schedule-time">07:05</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">虹桥机场登机</div>
+                      <div class="schedule-desc">航班 9C7117，提前2小时到达机场</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">10:05</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">抵达贵阳龙洞堡</div>
+                      <div class="schedule-desc">24小时接机服务，乘车前往市区酒店</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">下午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">自由活动</div>
+                      <div class="schedule-desc">可前往甲秀楼感受人文底蕴，或漫步黔灵山公园。别忘了用一顿地道美食开启贵州味觉之旅。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">傍晚</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">行前说明</div>
+                      <div class="schedule-desc">领队在群内发布次日行程准备物品、注意事项及安排。</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-box">
+                  <div class="weather-row">
+                    <div class="weather-main">
+                      <span class="weather-icon">⛅</span>
+                      <div>
+                        <div class="weather-temp">22° / 16°</div>
+                        <div class="weather-condition">多云</div>
+                      </div>
+                    </div>
+                    <div class="weather-location">贵阳市区</div>
+                  </div>
+                  <div class="dress-tip">
+                    <span class="dress-icon">👕</span>
+                    <span class="dress-text">建议穿薄长袖T恤+长裤，备一件薄外套。贵阳早晚温差较大，机场空调较冷注意保暖。</span>
+                  </div>
+                </div>
+                <div class="tips-box">
+                  <div class="tips-title">💡 温馨提示</div>
+                  <ul class="tips-list">
+                    <li>贵阳是西南交通枢纽，各地直达航班、高铁、火车交通便利</li>
+                    <li>早到的小伙伴如未到入住时间，可寄存行李先行游玩</li>
+                    <li>今天需要自行购置次日活动中的午餐食品，请购买容易携带且保质的食品</li>
+                    <li>野外徒步产生的垃圾必须自行带到可放置的垃圾站</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Day 2 -->
+        <div class="day-card" data-day="1">
+          <div class="day-dot"></div>
+          <div class="day-card-inner">
+            <div class="day-card-header">
+              <div class="day-card-left">
+                <div class="day-date">9.23 周三 · Day 2</div>
+                <div class="day-title">羊皮洞瀑布·地心探秘</div>
+                <div class="day-route">📍 贵阳 → 羊皮洞 → 贵阳</div>
+                <div class="day-meal">
+                  <span class="meal-tag included">含早餐</span>
+                  <span class="meal-tag">路餐</span>
+                  <span class="meal-tag">晚自理</span>
+                </div>
+              </div>
+              <div class="day-card-right">
+                <div class="day-weather"><span>🌧</span><span>20°</span></div>
+                <div class="day-hike">8km</div>
+              </div>
+            </div>
+            <div class="day-toggle">查看详情 ▼</div>
+            <div class="day-detail">
+              <div class="day-detail-inner">
+                <div class="schedule-list">
+                  <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">出发前往羊皮洞</div>
+                      <div class="schedule-desc">早餐后乘车70km（约1.5h）前往徒步起点，进行热身。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">羊皮洞瀑布徒步</div>
+                      <div class="schedule-desc">沿湿滑陡峭的原始小径下探峡谷，当轰鸣水声渐近，磅礴的羊皮洞瀑布豁然眼前。可在水雾弥漫中尽情创作大片。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">中午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">路餐休息</div>
+                      <div class="schedule-desc">在开阔处分享自带路餐。瀑布附近有当地村民摆摊卖水和简单小吃，也有水靴出租。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">下午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">洞穴探索与返程</div>
+                      <div class="schedule-desc">随领队探索瀑布旁的洞穴，随后徒步环线返回，乘车回贵阳。</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-box">
+                  <div class="weather-row">
+                    <div class="weather-main">
+                      <span class="weather-icon">🌧</span>
+                      <div>
+                        <div class="weather-temp">20° / 15°</div>
+                        <div class="weather-condition">小雨转阴</div>
+                      </div>
+                    </div>
+                    <div class="weather-location">清镇·羊皮洞</div>
+                  </div>
+                  <div class="dress-tip">
+                    <span class="dress-icon">🥾</span>
+                    <span class="dress-text">必须穿防滑徒步鞋！备一套干衣服和干鞋。建议穿速干长袖+冲锋裤，带雨衣。雨季道路泥泞，瀑布水雾大。</span>
+                  </div>
+                </div>
+                <div class="hike-data">
+                  <div class="hike-item"><div class="hike-value">8km</div><div class="hike-label">徒步距离</div></div>
+                  <div class="hike-item"><div class="hike-value">400m</div><div class="hike-label">累计爬升</div></div>
+                  <div class="hike-item"><div class="hike-value">300m</div><div class="hike-label">累计下降</div></div>
+                </div>
+                <div class="tips-box">
+                  <div class="tips-title">💡 温馨提示</div>
+                  <ul class="tips-list">
+                    <li>瀑布溶洞峡谷风光为主，山路有陡坡路段，雨季道路泥泞</li>
+                    <li>需要穿防滑的鞋子和带备换衣服鞋子</li>
+                    <li>今天需要自行购置次日活动中的午餐食品</li>
+                    <li>野外徒步产生的垃圾必须自行带到可放置的垃圾站</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Day 3 -->
+        <div class="day-card" data-day="2">
+          <div class="day-dot"></div>
+          <div class="day-card-inner">
+            <div class="day-card-header">
+              <div class="day-card-left">
+                <div class="day-date">9.24 周四 · Day 3</div>
+                <div class="day-title">大圣之眼·地心游记</div>
+                <div class="day-route">📍 贵阳 → 安顺</div>
+                <div class="day-meal">
+                  <span class="meal-tag included">含早餐</span>
+                  <span class="meal-tag">路餐</span>
+                  <span class="meal-tag">晚自理</span>
+                </div>
+              </div>
+              <div class="day-card-right">
+                <div class="day-weather"><span>⛅</span><span>21°</span></div>
+                <div class="day-hike">9km</div>
+              </div>
+            </div>
+            <div class="day-toggle">查看详情 ▼</div>
+            <div class="day-detail">
+              <div class="day-detail-inner">
+                <div class="schedule-list">
+                  <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">地心探险启程</div>
+                      <div class="schedule-desc">乘车120km（约2h）前往徒步起点。依次穿越天坑、崖壁小路和原始灌木林，进入神秘的溶洞系统。在头灯的照射下，洞内奇观缓缓展开。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">中午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">洞厅路餐</div>
+                      <div class="schedule-desc">在宽敞洞厅内用自带午餐，体验独特的"地心餐厅"。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">下午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">寻找大圣之眼</div>
+                      <div class="schedule-desc">寻找洞顶那束如"眼睛"般的天光——大圣之眼，随后出洞。乘车30km（约0.5h）前往安顺市入住。</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-box">
+                  <div class="weather-row">
+                    <div class="weather-main">
+                      <span class="weather-icon">⛅</span>
+                      <div>
+                        <div class="weather-temp">21° / 14°</div>
+                        <div class="weather-condition">多云</div>
+                      </div>
+                    </div>
+                    <div class="weather-location">安顺·溶洞区域</div>
+                  </div>
+                  <div class="dress-tip">
+                    <span class="dress-icon">🧤</span>
+                    <span class="dress-text">溶洞内温度较低（约16-18°C），建议穿长袖+薄外套。部分路段需手脚并用攀爬，务必携带手套和头灯。</span>
+                  </div>
+                </div>
+                <div class="hike-data">
+                  <div class="hike-item"><div class="hike-value">9km</div><div class="hike-label">徒步距离</div></div>
+                  <div class="hike-item"><div class="hike-value">400m</div><div class="hike-label">累计爬升</div></div>
+                  <div class="hike-item"><div class="hike-value">300m</div><div class="hike-label">累计下降</div></div>
+                </div>
+                <div class="tips-box">
+                  <div class="tips-title">💡 温馨提示</div>
+                  <ul class="tips-list">
+                    <li>以喀斯特地形地貌为主，少许路段需要手脚并用攀爬</li>
+                    <li>建议携带头灯或强光手电，洞内光线昏暗</li>
+                    <li>今天需要自行购置次日活动中的午餐食品</li>
+                    <li>野外徒步产生的垃圾必须自行带到可放置的垃圾站</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Day 4 -->
+        <div class="day-card" data-day="3">
+          <div class="day-dot"></div>
+          <div class="day-card-inner">
+            <div class="day-card-header">
+              <div class="day-card-left">
+                <div class="day-date">9.25 周五 · Day 4</div>
+                <div class="day-title">夜郎天路·龙脊山巅</div>
+                <div class="day-route">📍 安顺 · 龙脊山</div>
+                <div class="day-meal">
+                  <span class="meal-tag included">含早餐</span>
+                  <span class="meal-tag">路餐</span>
+                  <span class="meal-tag">晚自理</span>
+                </div>
+              </div>
+              <div class="day-card-right">
+                <div class="day-weather"><span>☀️</span><span>23°</span></div>
+                <div class="day-hike">10km</div>
+              </div>
+            </div>
+            <div class="day-toggle">查看详情 ▼</div>
+            <div class="day-detail">
+              <div class="day-detail-inner">
+                <div class="schedule-list">
+                  <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">攀登龙脊山</div>
+                      <div class="schedule-desc">从布依族村寨启程，沿山民行走的"羊肠小道"持续向上攀登，直至海拔两千多米的龙脊山顶。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">中午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">山脊路餐</div>
+                      <div class="schedule-desc">在山顶或开阔处用自带午餐，欣赏两侧壮丽峡谷与蜿蜒的牂牁江。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">下午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">山脊穿越与返程</div>
+                      <div class="schedule-desc">行走在奇鳞怪石的山脊上，两侧是壮丽的峡谷与蜿蜒的牂牁江，宛如漫步"异域星球"。适时穿越至终点，乘车返回安顺。</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-box">
+                  <div class="weather-row">
+                    <div class="weather-main">
+                      <span class="weather-icon">☀️</span>
+                      <div>
+                        <div class="weather-temp">23° / 15°</div>
+                        <div class="weather-condition">晴间多云</div>
+                      </div>
+                    </div>
+                    <div class="weather-location">安顺·龙脊山</div>
+                  </div>
+                  <div class="dress-tip">
+                    <span class="dress-icon">🧢</span>
+                    <span class="dress-text">山顶紫外线强，务必带遮阳帽和防晒霜。穿长袖速干衣+长裤（防灌木丛刮擦），备防风外套。海拔较高，注意防晒保暖。</span>
+                  </div>
+                </div>
+                <div class="hike-data">
+                  <div class="hike-item"><div class="hike-value">10km</div><div class="hike-label">徒步距离</div></div>
+                  <div class="hike-item"><div class="hike-value">800m</div><div class="hike-label">累计爬升</div></div>
+                  <div class="hike-item"><div class="hike-value">500m</div><div class="hike-label">累计下降</div></div>
+                </div>
+                <div class="tips-box">
+                  <div class="tips-title">💡 温馨提示</div>
+                  <ul class="tips-list">
+                    <li>以喀斯特地形地貌为主，需要走乡道、爬坡、穿越蕨类灌木丛和山脊石林</li>
+                    <li>建议穿长袖长裤防刮擦，带足饮用水（至少1.5L）</li>
+                    <li>今天需要自行购置次日活动中的午餐食品</li>
+                    <li>野外徒步产生的垃圾必须自行带到可放置的垃圾站</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Day 5 -->
+        <div class="day-card" data-day="4">
+          <div class="day-dot"></div>
+          <div class="day-card-inner">
+            <div class="day-card-header">
+              <div class="day-card-left">
+                <div class="day-date">9.26 周六 · Day 5</div>
+                <div class="day-title">关岭冰臼/花江峡谷·高桥奇观</div>
+                <div class="day-route">📍 安顺 · 关岭/花江</div>
+                <div class="day-meal">
+                  <span class="meal-tag included">含早餐</span>
+                  <span class="meal-tag">路餐</span>
+                  <span class="meal-tag">晚自理</span>
+                </div>
+              </div>
+              <div class="day-card-right">
+                <div class="day-weather"><span>🌤</span><span>24°</span></div>
+                <div class="day-hike">7-9km</div>
+              </div>
+            </div>
+            <div class="day-toggle">查看详情 ▼</div>
+            <div class="day-detail">
+              <div class="day-detail-inner">
+                <div class="schedule-list">
+                  <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">河谷/峡谷徒步</div>
+                      <div class="schedule-desc">根据出行季节或天气情况自动调整，确保最佳体验。A线：关岭冰臼（10月-次年4月）/ B线：花江峡谷（5月-9月）。如关岭冰臼涨水或其他因素不能走时则改走花江峡谷。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">中午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">路餐休息</div>
+                      <div class="schedule-desc">在河谷或峡谷开阔处用自带午餐。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">下午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">继续徒步与返程</div>
+                      <div class="schedule-desc">关岭冰臼：探寻遍布河床的冰臼奇观，感受地球亿万年的地质日记。花江峡谷：从多个独特视角仰望被誉为"世界第一高桥"的花江大桥，感受人类工程与自然造物的双重震撼。</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-box">
+                  <div class="weather-row">
+                    <div class="weather-main">
+                      <span class="weather-icon">🌤</span>
+                      <div>
+                        <div class="weather-temp">24° / 16°</div>
+                        <div class="weather-condition">多云转晴</div>
+                      </div>
+                    </div>
+                    <div class="weather-location">安顺·关岭/花江</div>
+                  </div>
+                  <div class="dress-tip">
+                    <span class="dress-icon">👟</span>
+                    <span class="dress-text">河谷徒步需穿防滑溯溪鞋或徒步鞋，备一双干袜子。峡谷山脊段注意防风。建议穿速干衣裤，备轻薄防晒衣。</span>
+                  </div>
+                </div>
+                <div class="hike-data">
+                  <div class="hike-item"><div class="hike-value">7-9km</div><div class="hike-label">徒步距离</div></div>
+                  <div class="hike-item"><div class="hike-value">200-300m</div><div class="hike-label">累计爬升</div></div>
+                  <div class="hike-item"><div class="hike-value">150-200m</div><div class="hike-label">累计下降</div></div>
+                </div>
+                <div class="tips-box">
+                  <div class="tips-title">💡 温馨提示</div>
+                  <ul class="tips-list">
+                    <li>本日行程根据出行季节或天气情况自动调整，确保最佳体验</li>
+                    <li>A线：关岭冰臼（10月-次年4月）/ B线：花江峡谷（5月-9月）</li>
+                    <li>如关岭冰臼涨水或其他因素不能走时则改走花江峡谷</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Day 6 -->
+        <div class="day-card" data-day="5">
+          <div class="day-dot"></div>
+          <div class="day-card-inner">
+            <div class="day-card-header">
+              <div class="day-card-left">
+                <div class="day-date">9.27 周日 · Day 6</div>
+                <div class="day-title">云峰屯堡·明代遗风·返程</div>
+                <div class="day-route">📍 安顺 → 贵阳 → 上海</div>
+                <div class="day-meal">
+                  <span class="meal-tag included">含早餐</span>
+                  <span class="meal-tag included">庆功宴</span>
+                  <span class="meal-tag">晚自理</span>
+                </div>
+              </div>
+              <div class="day-card-right">
+                <div class="day-weather"><span>☀️</span><span>25°</span></div>
+                <div class="day-hike">5km</div>
+              </div>
+            </div>
+            <div class="day-toggle">查看详情 ▼</div>
+            <div class="day-detail">
+              <div class="day-detail-inner">
+                <div class="schedule-list">
+                  <div class="schedule-item">
+                    <div class="schedule-time">上午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">云峰屯堡探秘</div>
+                      <div class="schedule-desc">乘车20km（约0.5h）前往云峰屯堡。登顶云鹫山，俯瞰万亩喀斯特坝子。随后深入云峰屯堡，在本寨等古屯堡中穿梭，看石头城堡、听神秘地戏，了解独特的"屯堡文化"。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">中午</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">庆功宴</div>
+                      <div class="schedule-desc">享用庆功宴中餐，分享旅途中的精彩瞬间。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">15:00</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">抵达机场</div>
+                      <div class="schedule-desc">乘车130km（约2h）返回贵阳，抵达龙洞堡机场及高铁站。</div>
+                    </div>
+                  </div>
+                  <div class="schedule-item">
+                    <div class="schedule-time">18:00</div>
+                    <div class="schedule-content">
+                      <div class="schedule-title">返程航班</div>
+                      <div class="schedule-desc">航班 CZ8263，贵阳龙洞堡 18:00 → 上海虹桥 20:20</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="weather-box">
+                  <div class="weather-row">
+                    <div class="weather-main">
+                      <span class="weather-icon">☀️</span>
+                      <div>
+                        <div class="weather-temp">25° / 17°</div>
+                        <div class="weather-condition">晴</div>
+                      </div>
+                    </div>
+                    <div class="weather-location">安顺·云峰屯堡</div>
+                  </div>
+                  <div class="dress-tip">
+                    <span class="dress-icon">👕</span>
+                    <span class="dress-text">景区游览相对轻松，建议穿舒适休闲装+运动鞋。注意防晒。返程飞机上空调较冷，薄外套放在随身行李中。</span>
+                  </div>
+                </div>
+                <div class="hike-data">
+                  <div class="hike-item"><div class="hike-value">5km</div><div class="hike-label">徒步距离</div></div>
+                  <div class="hike-item"><div class="hike-value">300m</div><div class="hike-label">累计爬升</div></div>
+                  <div class="hike-item"><div class="hike-value">150m</div><div class="hike-label">累计下降</div></div>
+                </div>
+                <div class="tips-box">
+                  <div class="tips-title">💡 温馨提示</div>
+                  <ul class="tips-list">
+                    <li>主要是景区游览，相对轻松休闲</li>
+                    <li>大约15:00左右到达贵阳龙洞堡机场</li>
+                    <li>如当天需要返程的小伙伴一定要购买晚上17:00以后龙洞堡机场的返程机票，以免造成赶不上飞机</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section class="notes-section" id="notesSection">
+      <div class="notes-header">
+        <div class="notes-title">📝 同行人注意事项</div>
+        <button class="notes-add-btn" id="addNoteBtn">+</button>
+      </div>
+      <div class="notes-list" id="notesList">
+        <div class="note-empty" id="notesEmpty">暂无注意事项，点击右上角 + 添加</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ====== 记账模块 ====== -->
+  <div class="module" id="moduleAccounting">
+    <section class="accounting-section">
+      <!-- 成员概览 -->
+      <div class="ac-section-title">👥 成员概览</div>
+      <div class="ac-member-overview hide-scrollbar" id="acMemberOverview"></div>
+
+      <!-- 结算方案 -->
+      <div class="ac-settlement-section">
+        <div class="ac-section-title">💸 结算方案</div>
+        <div class="ac-settlement-list hide-scrollbar" id="acSettlementList">
+          <div class="ac-settlement-empty">暂无消费记录，点击下方添加</div>
+        </div>
+      </div>
+
+      <!-- 消费明细 -->
+      <div class="ac-expense-section">
+        <div class="ac-expense-header">
+          <div class="ac-section-title">🧾 成员消费明细</div>
+          <button class="ac-add-expense-btn" id="acAddExpenseBtn">+ 记一笔</button>
+        </div>
+        <div id="acExpenseGroups"></div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<!-- 底部导航 -->
+
+<!-- 添加/编辑注意事项弹窗 -->
+<div class="modal-overlay" id="noteModal">
+  <div class="modal-content">
+    <div class="modal-title" id="modalTitle">添加注意事项</div>
+    <input type="text" class="modal-input" id="noteAuthor" placeholder="你的名字（如：小明）" maxlength="10">
+    <select class="modal-select" id="noteCategory">
+      <option value="装备">🎒 装备</option>
+      <option value="航班">✈️ 航班</option>
+      <option value="餐饮">🍽 餐饮</option>
+      <option value="天气">🌤 天气</option>
+      <option value="其他">📌 其他</option>
+    </select>
+    <textarea class="modal-textarea" id="noteContent" placeholder="输入提醒内容..."></textarea>
+    <div class="modal-actions">
+      <button class="modal-btn cancel" id="modalCancel">取消</button>
+      <button class="modal-btn confirm" id="modalConfirm">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- 添加/编辑同行人弹窗 -->
+<div class="modal-overlay" id="companionModal">
+  <div class="modal-content">
+    <div class="modal-title" id="compModalTitle">添加同行人</div>
+    <input type="text" class="modal-input" id="companionName" placeholder="输入名字（如：小明）" maxlength="8">
+    <div class="modal-actions">
+      <button class="modal-btn cancel" id="compModalCancel">取消</button>
+      <button class="modal-btn confirm" id="compModalConfirm">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- 添加/编辑消费弹窗 -->
+<div class="modal-overlay" id="expenseModal">
+  <div class="modal-content">
+    <div class="modal-title" id="expModalTitle">记一笔</div>
+    <select class="modal-select" id="expPayer">
+      <option value="">选择付款人</option>
+    </select>
+    <input type="number" class="modal-input" id="expAmount" placeholder="金额（元）" min="0" step="0.01">
+    <select class="modal-select" id="expCategory">
+      <option value="餐饮">🍽 餐饮</option>
+      <option value="交通">🚗 交通</option>
+      <option value="住宿">🏨 住宿</option>
+      <option value="门票">🎫 门票</option>
+      <option value="购物">🛍 购物</option>
+      <option value="其他">📌 其他</option>
+    </select>
+    <input type="datetime-local" class="modal-input" id="expDate">
+    <label class="modal-label">参与分账的成员</label>
+    <div class="modal-checkbox-group" id="expParticipants"></div>
+    <input type="text" class="modal-input" id="expNote" placeholder="备注（可选）">
+    <div class="modal-actions">
+      <button class="modal-btn cancel" id="expModalCancel">取消</button>
+      <button class="modal-btn confirm" id="expModalConfirm">保存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========== 常量 ==========
+const COMPANION_COLORS = ["var(--c1)","var(--c2)","var(--c3)","var(--c4)","var(--c5)","var(--c6)","var(--c7)","var(--c8)"];
+const COMPANIONS_KEY = "wuxianqiantu_companions_v1";
+const NOTES_KEY = "wuxianqiantu_notes_v1";
+const EXPENSES_KEY = "wuxianqiantu_expenses_v1";
+
+const tripData = {
+  outbound: { date: "2026-09-22", time: "07:05", flight: "9C7117" },
+  return: { date: "2026-09-27", time: "18:00", flight: "CZ8263" }
+};
+
+// ========== 数据状态 ==========
+let companions = [];
+let notes = [];
+let expenses = [];
+let editingId = null;
+let editingCompanionId = null;
+let editingExpenseId = null;
+
+// ========== 初始化数据 ==========
+function initData() {
+  const savedComp = localStorage.getItem(COMPANIONS_KEY);
+  if (savedComp) {
+    companions = JSON.parse(savedComp);
+  } else {
+    companions = [
+      { id: "comp_1", name: "我" },
+      { id: "comp_2", name: "小明" },
+      { id: "comp_3", name: "小华" },
+      { id: "comp_4", name: "小李" }
+    ];
+    saveCompanions();
+  }
+
+  const savedNotes = localStorage.getItem(NOTES_KEY);
+  if (savedNotes) {
+    notes = JSON.parse(savedNotes);
+  } else {
+    notes = [
+      { id: "note_1", author: "小明", category: "装备", content: "记得带防水袋，羊皮洞瀑布水雾很大，手机相机容易淋湿", createdAt: Date.now()-86400000*2, updatedAt: Date.now()-86400000*2 },
+      { id: "note_2", author: "我", category: "航班", content: "返程航班CZ8263是18:00起飞，建议买17:00以后到达机场的机票", createdAt: Date.now()-86400000, updatedAt: Date.now()-86400000 }
+    ];
+    saveNotes();
+  }
+
+  const savedExp = localStorage.getItem(EXPENSES_KEY);
+  if (savedExp) {
+    expenses = JSON.parse(savedExp);
+  }
+}
+
+// ========== 工具函数 ==========
+function escapeHtml(s) {
+  const div = document.createElement("div");
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+function formatTime(ts) {
+  const d = new Date(ts);
+  const now = new Date();
+  const diff = (now - d) / 1000;
+  if (diff < 60) return "刚刚";
+  if (diff < 3600) return Math.floor(diff/60) + "分钟前";
+  if (diff < 86400) return Math.floor(diff/3600) + "小时前";
+  return (d.getMonth()+1) + "/" + d.getDate();
+}
+
+function getCompanionColor(index) {
+  return COMPANION_COLORS[index % COMPANION_COLORS.length];
+}
+
+function getCompanionName(id) {
+  const c = companions.find(x => x.id === id);
+  return c ? c.name : "未知";
+}
+
+function getCompanionIndex(id) {
+  return companions.findIndex(x => x.id === id);
+}
+
+// ========== 保存函数 ==========
+function saveCompanions() {
+  localStorage.setItem(COMPANIONS_KEY, JSON.stringify(companions));
+  renderCompanions();
+  renderAccounting();
+}
+
+function saveNotes() {
+  localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+  renderNotes();
+}
+
+function saveExpenses() {
+  localStorage.setItem(EXPENSES_KEY, JSON.stringify(expenses));
+  renderAccounting();
+}
+
+// ========== 同行人渲染 ==========
+function renderCompanions() {
+  const list = document.getElementById("companionsList");
+  const countEl = document.getElementById("companionsCount");
+  if (!companions.length) {
+    list.innerHTML = '<div style="font-size:12px;color:var(--moss);padding:8px 0;">点击 + 添加同行伙伴</div>';
+    countEl.textContent = "0人";
+    return;
+  }
+  countEl.textContent = companions.length + "人";
+  list.innerHTML = companions.map((c, i) => `
+    <div class="companion-item" data-id="${c.id}">
+      <div class="companion-delete" onclick="deleteCompanion('${c.id}', event)">×</div>
+      <div class="companion-avatar" style="background:${getCompanionColor(i)}">${c.name.charAt(0)}</div>
+      <div class="companion-name">${escapeHtml(c.name)}</div>
+    </div>
+  `).join("");
+
+  list.querySelectorAll(".companion-item").forEach(item => {
+    item.addEventListener("click", () => {
+      const id = item.dataset.id;
+      const c = companions.find(x => x.id === id);
+      if (!c) return;
+      editingCompanionId = id;
+      document.getElementById("compModalTitle").textContent = "编辑名字";
+      document.getElementById("companionName").value = c.name;
+      document.getElementById("companionModal").classList.add("show");
+    });
+  });
+}
+
+function deleteCompanion(id, event) {
+  event.stopPropagation();
+  if (!confirm("确定移除这位同行伙伴吗？")) return;
+  companions = companions.filter(c => c.id !== id);
+  saveCompanions();
+}
+
+// ========== 注意事项渲染 ==========
+function renderNotes() {
+  const list = document.getElementById("notesList");
+  const empty = document.getElementById("notesEmpty");
+  if (!notes.length) {
+    list.innerHTML = "";
+    list.appendChild(empty);
+    empty.style.display = "block";
+    return;
+  }
+  empty.style.display = "none";
+  list.innerHTML = notes.map(n => {
+    const cIdx = companions.findIndex(c => c.name === n.author);
+    const bg = cIdx >= 0 ? getCompanionColor(cIdx) : "var(--forest)";
+    return `
+    <div class="note-card" data-id="${n.id}">
+      <div class="note-actions">
+        <button class="note-action-btn" onclick="editNote('${n.id}')">编辑</button>
+        <button class="note-action-btn" onclick="deleteNote('${n.id}')">删除</button>
+      </div>
+      <div class="note-header">
+        <div class="note-avatar" style="background:${bg}">${n.author.charAt(0)}</div>
+        <span class="note-author">${escapeHtml(n.author)}</span>
+        <span class="note-tag">${escapeHtml(n.category)}</span>
+        <span class="note-time">${formatTime(n.updatedAt)}</span>
+      </div>
+      <div class="note-content">${escapeHtml(n.content)}</div>
+    </div>
+  `}).join("");
+}
+
+function deleteNote(id) {
+  if (!confirm("确定删除这条注意事项吗？")) return;
+  notes = notes.filter(n => n.id !== id);
+  saveNotes();
+}
+
+function editNote(id) {
+  const n = notes.find(x => x.id === id);
+  if (!n) return;
+  editingId = id;
+  document.getElementById("modalTitle").textContent = "编辑注意事项";
+  document.getElementById("noteAuthor").value = n.author;
+  document.getElementById("noteCategory").value = n.category;
+  document.getElementById("noteContent").value = n.content;
+  document.getElementById("noteModal").classList.add("show");
+}
+
+// ========== 记账模块渲染 ==========
+function renderAccounting() {
+  // 计算每人数据
+  const memberData = {};
+  companions.forEach(c => {
+    memberData[c.id] = { paid: 0, share: 0, count: 0 };
+  });
+
+  expenses.forEach(e => {
+    if (memberData[e.payerId]) {
+      memberData[e.payerId].paid += e.amount;
+    }
+    e.participants.forEach(pid => {
+      if (memberData[pid]) {
+        memberData[pid].share += e.amount / e.participants.length;
+      }
+    });
+  });
+
+  // 成员概览
+  const overviewEl = document.getElementById("acMemberOverview");
+  overviewEl.innerHTML = companions.map((c, i) => {
+    const d = memberData[c.id];
+    const balance = d.paid - d.share;
+    let balanceClass = "";
+    let balanceText = "已平账";
+    if (balance > 0.01) { balanceClass = "positive"; balanceText = `应收 +${balance.toFixed(1)}`; }
+    else if (balance < -0.01) { balanceClass = "negative"; balanceText = `应补 ${balance.toFixed(1)}`; }
+    return `
+      <div class="ac-member-chip" onclick="openExpenseModalFor('${c.id}')">
+        <div class="avatar" style="background:${getCompanionColor(i)}">${c.name.charAt(0)}</div>
+        <div class="name">${escapeHtml(c.name)}</div>
+        <div class="balance ${balanceClass}">${balanceText}</div>
+      </div>
+    `;
+  }).join("");
+
+  // 结算方案
+  const settlementEl = document.getElementById("acSettlementList");
+  if (!expenses.length) {
+    settlementEl.innerHTML = '<div class="ac-settlement-empty">暂无消费记录，点击下方添加</div>';
+  } else {
+    const balances = companions.map(c => {
+      const d = memberData[c.id];
+      return { id: c.id, name: c.name, balance: d.paid - d.share };
+    }).filter(b => Math.abs(b.balance) > 0.01);
+
+    const settlements = [];
+    const debtors = balances.filter(b => b.balance < -0.01).sort((a,b) => a.balance - b.balance);
+    const creditors = balances.filter(b => b.balance > 0.01).sort((a,b) => b.balance - a.balance);
+
+    let di = 0, ci = 0;
+    while (di < debtors.length && ci < creditors.length) {
+      const d = debtors[di];
+      const c = creditors[ci];
+      const amount = Math.min(-d.balance, c.balance);
+      if (amount > 0.01) {
+        settlements.push({ from: d.name, to: c.name, amount: amount.toFixed(2) });
+      }
+      d.balance += amount;
+      c.balance -= amount;
+      if (Math.abs(d.balance) < 0.01) di++;
+      if (Math.abs(c.balance) < 0.01) ci++;
+    }
+
+    if (!settlements.length) {
+      settlementEl.innerHTML = '<div class="ac-settlement-empty">🎉 所有人已平账，无需转账</div>';
+    } else {
+      settlementEl.innerHTML = settlements.map(s => `
+        <div class="ac-settlement-card">
+          <div class="from-to">${escapeHtml(s.from)} <span class="arrow">→</span> ${escapeHtml(s.to)}</div>
+          <div class="amount">¥${s.amount}</div>
+        </div>
+      `).join("");
+    }
+  }
+
+  // 消费明细分组
+  const groupsEl = document.getElementById("acExpenseGroups");
+  if (!expenses.length) {
+    groupsEl.innerHTML = '<div class="ac-settlement-empty" style="margin-top:12px;">暂无消费记录</div>';
+    return;
+  }
+
+  const byPayer = {};
+  companions.forEach(c => byPayer[c.id] = []);
+  expenses.forEach(e => {
+    if (byPayer[e.payerId]) byPayer[e.payerId].push(e);
+  });
+
+  groupsEl.innerHTML = companions.map((c, i) => {
+    const list = byPayer[c.id] || [];
+    if (!list.length) return "";
+    const total = list.reduce((s, e) => s + e.amount, 0);
+    return `
+      <div class="ac-expense-group" data-payer="${c.id}">
+        <div class="ac-expense-group-header" onclick="toggleExpenseGroup(this)">
+          <div class="avatar" style="background:${getCompanionColor(i)}">${c.name.charAt(0)}</div>
+          <div class="info">
+            <div class="name">${escapeHtml(c.name)}</div>
+            <div class="total">${list.length} 笔消费 · 共 ¥${total.toFixed(2)}</div>
+          </div>
+          <div class="toggle">▼</div>
+        </div>
+        <div class="ac-expense-list">
+          ${list.map(e => `
+            <div class="ac-expense-item" data-id="${e.id}">
+              <span class="category-tag">${escapeHtml(e.category)}</span>
+              <div class="detail">
+                <div class="title">${escapeHtml(e.note || e.category)}</div>
+                <div class="meta">${formatExpenseDate(e.date)} · 分账: ${e.participants.map(pid => getCompanionName(pid)).join(", ")}</div>
+              </div>
+              <div class="amount">¥${e.amount.toFixed(2)}</div>
+              <div class="actions">
+                <button onclick="editExpense('${e.id}')">编辑</button>
+                <button onclick="deleteExpense('${e.id}')">删除</button>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function formatExpenseDate(dateStr) {
+  const d = new Date(dateStr);
+  if (isNaN(d)) return dateStr;
+  return `${d.getMonth()+1}月${d.getDate()}日 ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
+}
+
+function toggleExpenseGroup(header) {
+  const group = header.closest(".ac-expense-group");
+  group.classList.toggle("open");
+  header.querySelector(".toggle").textContent = group.classList.contains("open") ? "▲" : "▼";
+}
+
+function openExpenseModalFor(payerId) {
+  editingExpenseId = null;
+  document.getElementById("expModalTitle").textContent = "记一笔";
+  document.getElementById("expPayer").value = payerId || "";
+  document.getElementById("expAmount").value = "";
+  document.getElementById("expCategory").value = "餐饮";
+  document.getElementById("expDate").value = new Date().toISOString().slice(0, 16);
+  document.getElementById("expNote").value = "";
+  renderExpenseParticipants();
+  document.getElementById("expenseModal").classList.add("show");
+}
+
+function renderExpenseParticipants() {
+  const container = document.getElementById("expParticipants");
+  container.innerHTML = companions.map((c, i) => `
+    <label class="modal-checkbox-item">
+      <input type="checkbox" value="${c.id}" checked>
+      <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:${getCompanionColor(i)};margin-right:4px;flex-shrink:0;"></span>
+      ${escapeHtml(c.name)}
+    </label>
+  `).join("");
+}
+
+function editExpense(id) {
+  const e = expenses.find(x => x.id === id);
+  if (!e) return;
+  editingExpenseId = id;
+  document.getElementById("expModalTitle").textContent = "编辑消费";
+  document.getElementById("expPayer").value = e.payerId;
+  document.getElementById("expAmount").value = e.amount;
+  document.getElementById("expCategory").value = e.category;
+  document.getElementById("expDate").value = e.date;
+  document.getElementById("expNote").value = e.note || "";
+  renderExpenseParticipants();
+  document.querySelectorAll("#expParticipants input").forEach(cb => {
+    cb.checked = e.participants.includes(cb.value);
+  });
+  document.getElementById("expenseModal").classList.add("show");
+}
+
+function deleteExpense(id) {
+  if (!confirm("确定删除这条消费记录吗？")) return;
+  expenses = expenses.filter(e => e.id !== id);
+  saveExpenses();
+}
+
+// ========== 事件绑定 ==========
+
+// Tab切换
+document.querySelectorAll(".top-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".top-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    const mod = tab.dataset.module;
+    document.querySelectorAll(".module").forEach(m => m.classList.remove("active"));
+    document.getElementById("module" + (mod === "travel" ? "Travel" : "Accounting")).classList.add("active");
+    if (mod === "accounting") renderAccounting();
+  });
+});
+
+// 倒计时
+function updateCountdown() {
+  const now = new Date();
+  const outTime = new Date(tripData.outbound.date + "T" + tripData.outbound.time + ":00+08:00");
+  const retTime = new Date(tripData.return.date + "T" + tripData.return.time + ":00+08:00");
+  function formatDiff(target) {
+    const diff = target - now;
+    if (diff <= 0) return "已出发/已返程";
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+    if (days > 0) return `距离出发还有 <span class="num">${days}</span> 天 <span class="num">${hours}</span> 小时`;
+    if (hours > 0) return `距离出发还有 <span class="num">${hours}</span> 小时 <span class="num">${mins}</span> 分`;
+    return `距离出发还有 <span class="num">${mins}</span> 分钟`;
+  }
+  const outEl = document.getElementById("countdownOutbound");
+  const retEl = document.getElementById("countdownReturn");
+  const compactEl = document.getElementById("compactCountdown");
+  if (outEl) outEl.innerHTML = "⏱ " + formatDiff(outTime);
+  if (retEl) retEl.innerHTML = "⏱ " + formatDiff(retTime);
+  if (compactEl) compactEl.innerHTML = formatDiff(outTime).replace(/<[^>]+>/g, "");
+}
+setInterval(updateCountdown, 60000);
+updateCountdown();
+
+// 航班滑动
+const flightScroll = document.getElementById("flightScroll");
+const flightDots = document.querySelectorAll(".flight-dot");
+if (flightScroll) {
+  flightScroll.addEventListener("scroll", () => {
+    const idx = Math.round(flightScroll.scrollLeft / (flightScroll.offsetWidth * 0.85));
+    flightDots.forEach((d, i) => d.classList.toggle("active", i === idx));
+  });
+  flightDots.forEach((d, i) => {
+    d.addEventListener("click", () => {
+      flightScroll.scrollTo({ left: i * flightScroll.offsetWidth * 0.92, behavior: "smooth" });
+    });
+  });
+}
+
+// 行程展开
+document.querySelectorAll(".day-card").forEach(card => {
+  card.addEventListener("click", (e) => {
+    if (e.target.closest(".note-actions")) return;
+    const isActive = card.classList.contains("active");
+    document.querySelectorAll(".day-card").forEach(c => {
+      c.classList.remove("active");
+      c.querySelector(".day-toggle").textContent = "查看详情 ▼";
+    });
+    if (!isActive) {
+      card.classList.add("active");
+      card.querySelector(".day-toggle").textContent = "收起详情 ▲";
+    }
+  });
+});
+
+// 滚动标题收缩
+const compactHeader = document.getElementById("compactHeader");
+let lastScroll = 0;
+window.addEventListener("scroll", () => {
+  const y = window.scrollY;
+  if (y > 120 && y > lastScroll) compactHeader.classList.add("visible");
+  else if (y < 80 || y < lastScroll) compactHeader.classList.remove("visible");
+  lastScroll = y;
+});
+
+// 底部导航
+document.querySelectorAll(".nav-item[data-target]").forEach(item => {
+  item.addEventListener("click", () => {
+    const target = item.dataset.target;
+    const el = document.getElementById(target) || document.querySelector("." + target);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
+      item.classList.add("active");
+    }
+  });
+});
+
+// 分享
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  const shareData = { title: "无限黔徒 · 第26期", text: "6天5晚贵州徒步旅行计划", url: window.location.href };
+  if (navigator.share) { try { await navigator.share(shareData); } catch(e) {} }
+  else { try { await navigator.clipboard.writeText(window.location.href); alert("链接已复制到剪贴板"); } catch(e) {} }
+});
+
+// 同行人弹窗
+document.getElementById("addCompanionBtn").addEventListener("click", () => {
+  editingCompanionId = null;
+  document.getElementById("compModalTitle").textContent = "添加同行人";
+  document.getElementById("companionName").value = "";
+  document.getElementById("companionModal").classList.add("show");
+});
+document.getElementById("compModalCancel").addEventListener("click", () => {
+  document.getElementById("companionModal").classList.remove("show");
+});
+document.getElementById("companionModal").addEventListener("click", (e) => {
+  if (e.target === document.getElementById("companionModal")) document.getElementById("companionModal").classList.remove("show");
+});
+document.getElementById("compModalConfirm").addEventListener("click", () => {
+  const name = document.getElementById("companionName").value.trim();
+  if (!name) { alert("请输入名字"); return; }
+  if (editingCompanionId) {
+    const c = companions.find(x => x.id === editingCompanionId);
+    if (c) c.name = name;
+  } else {
+    companions.push({ id: "comp_" + Date.now(), name });
+  }
+  saveCompanions();
+  document.getElementById("companionModal").classList.remove("show");
+});
+
+// 注意事项弹窗
+const noteModal = document.getElementById("noteModal");
+document.getElementById("addNoteBtn").addEventListener("click", () => {
+  editingId = null;
+  document.getElementById("modalTitle").textContent = "添加注意事项";
+  document.getElementById("noteAuthor").value = "";
+  document.getElementById("noteCategory").value = "装备";
+  document.getElementById("noteContent").value = "";
+  noteModal.classList.add("show");
+});
+document.getElementById("modalCancel").addEventListener("click", () => noteModal.classList.remove("show"));
+noteModal.addEventListener("click", (e) => { if (e.target === noteModal) noteModal.classList.remove("show"); });
+document.getElementById("modalConfirm").addEventListener("click", () => {
+  const author = document.getElementById("noteAuthor").value.trim() || "匿名";
+  const category = document.getElementById("noteCategory").value;
+  const content = document.getElementById("noteContent").value.trim();
+  if (!content) { alert("请输入内容"); return; }
+  if (editingId) {
+    const n = notes.find(x => x.id === editingId);
+    if (n) { n.author = author; n.category = category; n.content = content; n.updatedAt = Date.now(); }
+  } else {
+    notes.push({ id: "note_" + Date.now(), author, category, content, createdAt: Date.now(), updatedAt: Date.now() });
+  }
+  saveNotes();
+  noteModal.classList.remove("show");
+});
+
+// 记账弹窗
+const expModal = document.getElementById("expenseModal");
+document.getElementById("acAddExpenseBtn").addEventListener("click", () => openExpenseModalFor(""));
+document.getElementById("expModalCancel").addEventListener("click", () => expModal.classList.remove("show"));
+expModal.addEventListener("click", (e) => { if (e.target === expModal) expModal.classList.remove("show"); });
+document.getElementById("expModalConfirm").addEventListener("click", () => {
+  const payerId = document.getElementById("expPayer").value;
+  const amount = parseFloat(document.getElementById("expAmount").value);
+  const category = document.getElementById("expCategory").value;
+  const date = document.getElementById("expDate").value;
+  const note = document.getElementById("expNote").value.trim();
+  const participants = Array.from(document.querySelectorAll("#expParticipants input:checked")).map(cb => cb.value);
+
+  if (!payerId) { alert("请选择付款人"); return; }
+  if (!amount || amount <= 0) { alert("请输入有效金额"); return; }
+  if (!participants.length) { alert("请至少选择一位参与分账的成员"); return; }
+
+  if (editingExpenseId) {
+    const e = expenses.find(x => x.id === editingExpenseId);
+    if (e) { e.payerId = payerId; e.amount = amount; e.category = category; e.date = date; e.note = note; e.participants = participants; }
+  } else {
+    expenses.push({ id: "exp_" + Date.now(), payerId, amount, category, date, note, participants });
+  }
+  saveExpenses();
+  expModal.classList.remove("show");
+});
+
+// 初始化付款人选项
+function initPayerOptions() {
+  const sel = document.getElementById("expPayer");
+  sel.innerHTML = '<option value="">选择付款人</option>' + companions.map((c, i) => 
+    `<option value="${c.id}">${c.name}</option>`
+  ).join("");
+}
+
+// ========== 启动 ==========
+initData();
+renderCompanions();
+renderNotes();
+initPayerOptions();
+</script>
+</body>
+</html>
